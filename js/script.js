@@ -27,7 +27,6 @@ checkboxLabel.addEventListener("click", function(){
 var questions = document.getElementsByClassName('question');
 function questionListener(question, index){
   question.addEventListener('click', function(){
-    //debugger;
     for(var i=0; i<questions.length; i++){
       if(i==index){
         questions[i].classList.toggle('opened');
@@ -41,6 +40,28 @@ function questionListener(question, index){
 for(var i=0; i<questions.length; i++){
   questionListener(questions[i],i);
 }
+
+
+var link1 = document.getElementById('first-procedure-link');
+var link2 = document.getElementById('second-procedure-link');
+var link3 = document.getElementById('third-procedure-link');
+var link4 = document.getElementById('fourth-procedure-link');
+var specs = document.getElementsByClassName('specs-info');
+function toggleSpec(index){
+  for(var i=0;i<specs.length;i++){
+    if(i==index){
+      specs[i].classList.toggle('closed-spec');
+    }
+    else{
+      specs[i].classList.add('closed-spec');
+    }
+  }
+}
+link1.addEventListener('click', function(){toggleSpec(0)});
+link2.addEventListener('click', function(){toggleSpec(1)});
+link3.addEventListener('click', function(){toggleSpec(2)});
+link4.addEventListener('click', function(){toggleSpec(3)});
+
 
 
 $(function(){
@@ -68,6 +89,6 @@ var smallMenu = document.getElementById('small-menu-content');
 document.getElementById('small-menu-btn').addEventListener('click',function(){
   smallMenu.classList.toggle('hidden');
   for(var i=0; i<2; i++){
-    menuImages[i].classList.toggle('hidden');
+    menuImages[i].classList.toggle('closing-input');
   }
 })
